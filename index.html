@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data: https://*.openstreetmap.org https://*.basemaps.cartocdn.com">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data: https://*.openstreetmap.org https://*.basemaps.cartocdn.com">
     <title>Hello World!</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="./node_modules/leaflet/dist/leaflet.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
@@ -18,9 +19,7 @@
         <div class="sidebar-entry">Item goes here</div>
         <div class="sidebar-entry">Item goes here</div>
       </div>
-      <div class="map">
-        Map goes here
-      </div>
+      <div id="map"></div>
       <div class="details">
         <h1>Hello World!</h1>
         <section>
@@ -31,6 +30,7 @@
       </div>
     </div>
     <!-- You can also require other files to run in this process -->
+    <script src="./node_modules/leaflet/dist/leaflet.js"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>
