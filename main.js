@@ -11,11 +11,15 @@ function createWindow () {
     minHeight: 420,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    show: false,
+    icon: path.join(__dirname, '/images/icon-256.png'),
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+
+  mainWindow.once('ready-to-show', () => { mainWindow.show(); });
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
