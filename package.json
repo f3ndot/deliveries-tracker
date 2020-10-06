@@ -16,7 +16,7 @@
   "author": "Justin Bull",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^8.5.1"
   },
   "dependencies": {
     "leaflet": "^1.6.0"
