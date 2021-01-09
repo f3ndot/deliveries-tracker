@@ -6,6 +6,12 @@
 // process.
 const map = L.map('map').setView([43.6532, -79.3832], 4);
 
+const messagePromise = window.ipcRenderer.invoke('get-current-directory', ['foo', 'bar']);
+messagePromise.then((someValue) => {
+  console.log('RESPONSE!', someValue);
+});
+
+
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png', {
   maxZoom: 9,
   attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>'

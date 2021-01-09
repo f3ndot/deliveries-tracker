@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
+const fs = require('fs')
 
 function createWindow () {
   // Create the browser window.
@@ -24,6 +25,12 @@ function createWindow () {
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
 }
+
+ipcMain.handle('get-current-directory', (event, args) => {
+  const rootContents = fs.readdirSync('/');
+  console.log('cooool!', event, args, rootContents);
+  return rootContents;
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
