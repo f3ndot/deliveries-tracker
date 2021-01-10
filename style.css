@@ -3,6 +3,39 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+.online-offline-notice {
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap: nowrap;
+  padding: 1px 0;
+  text-align: center;
+  color: white;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* to overlay leafletjs map */
+  transition: ease-in-out 0.25s;
+  transform:translateY(-100%);
+}
+.online-offline-notice.offline {
+  transform:translateY(0);
+  background-color: #ee2200;
+}
+.online-offline-notice.online {
+  transform:translateY(0);
+  background-color: #4CAF50;
+}
+.online-offline-notice .text {
+  flex: 100%;
+}
+.online-offline-notice .close {
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0 5px;
+}
 .container {
   display: grid;
   grid-template-columns: minmax(200px, 25%) 1fr;
